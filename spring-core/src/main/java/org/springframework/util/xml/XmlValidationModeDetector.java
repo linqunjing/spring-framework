@@ -95,13 +95,16 @@ public class XmlValidationModeDetector {
 			String content;
 			while ((content = reader.readLine()) != null) {
 				content = consumeCommentTokens(content);
+				//如果读取的行是空或者是注释则略过
 				if (this.inComment || !StringUtils.hasText(content)) {
 					continue;
 				}
 				if (hasDoctype(content)) {
+					//Spring用来检测验证模式的办法就是判断是否包含DOCTYPE，如果包含就是DTD，否则就是XSD。
 					isDtdValidated = true;
 					break;
 				}
+				//读取到<开始符号,验证模式一定会在开始符号之前,todo 不明白
 				if (hasOpeningTag(content)) {
 					// End of meaningful data...
 					break;

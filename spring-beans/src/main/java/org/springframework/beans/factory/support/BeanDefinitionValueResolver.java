@@ -107,6 +107,7 @@ class BeanDefinitionValueResolver {
 		// to another bean to be resolved.
 		if (value instanceof RuntimeBeanReference) {
 			RuntimeBeanReference ref = (RuntimeBeanReference) value;
+			//处理对应引用
 			return resolveReference(argName, ref);
 		}
 		else if (value instanceof RuntimeBeanNameReference) {
@@ -289,6 +290,7 @@ class BeanDefinitionValueResolver {
 		try {
 			Object bean;
 			String refName = ref.getBeanName();
+			//解析标签值
 			refName = String.valueOf(doEvaluate(refName));
 			if (ref.isToParent()) {
 				if (this.beanFactory.getParentBeanFactory() == null) {

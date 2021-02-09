@@ -16,9 +16,12 @@
 
 package org.springframework.beans.factory.xml;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 
 import org.junit.Test;
+import org.springframework.beans.factory.BeanFactory;
 import org.xml.sax.InputSource;
 
 import org.springframework.beans.factory.BeanDefinitionStoreException;
@@ -39,6 +42,16 @@ import static org.junit.Assert.*;
  * @author Sam Brannen
  */
 public class XmlBeanDefinitionReaderTests {
+
+
+	@Test
+	public void test1() throws IOException {
+		BeanFactory bf = new XmlBeanFactory(new ClassPathResource("test.xml"));
+		/*Resource resource = new ClassPathResource("validateWithDtd.xml");
+		//获取到文件流对象
+		InputStream inputStream = resource.getInputStream();*/
+
+	}
 
 	@Test
 	public void setParserClassSunnyDay() {

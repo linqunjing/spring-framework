@@ -12,20 +12,24 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *//*
+
 
 package org.springframework.cglib.core;
 
-import java.lang.reflect.Method;
-import java.security.ProtectionDomain;
-import java.util.Collections;
-import java.util.List;
-
+import jdk.nashorn.internal.codegen.ClassEmitter;
 import org.springframework.asm.ClassVisitor;
 import org.springframework.asm.Label;
 import org.springframework.asm.Type;
 import org.springframework.cglib.core.internal.CustomizerRegistry;
 
+import java.beans.Customizer;
+import java.lang.reflect.Method;
+import java.security.ProtectionDomain;
+import java.util.Collections;
+import java.util.List;
+
+*/
 /**
  * Generates classes to handle multi-valued keys, for use in things such as Maps and Sets.
  * Code for <code>equals</code> and <code>hashCode</code> methods follow the
@@ -53,7 +57,8 @@ import org.springframework.cglib.core.internal.CustomizerRegistry;
  * <code>hashCode</code> equality between two keys <code>key1</code> and <code>key2</code> is only guaranteed if
  * <code>key1.equals(key2)</code> <i>and</i> the keys were produced by the same factory.
  * @version $Id: KeyFactory.java,v 1.26 2006/03/05 02:43:19 herbyderby Exp $
- */
+ *//*
+
 @SuppressWarnings({"rawtypes", "unchecked"})
 abstract public class KeyFactory {
 
@@ -120,10 +125,12 @@ abstract public class KeyFactory {
 		}
 	};
 
-	/**
+	*/
+/**
 	 * {@link Type#hashCode()} is very expensive as it traverses full descriptor to calculate hash code.
 	 * This customizer uses {@link Type#getSort()} as a hash code.
-	 */
+	 *//*
+
 	public static final HashCodeCustomizer HASH_ASM_TYPE = new HashCodeCustomizer() {
 		public boolean customize(CodeEmitter e, Type type) {
 			if (Constants.TYPE_TYPE.equals(type)) {
@@ -134,10 +141,12 @@ abstract public class KeyFactory {
 		}
 	};
 
-	/**
+	*/
+/**
 	 * @deprecated this customizer might result in unexpected class leak since key object still holds a strong reference to the Object and class.
 	 * It is recommended to have pre-processing method that would strip Objects and represent Classes as Strings
-	 */
+	 *//*
+
 	@Deprecated
 	public static final Customizer OBJECT_BY_CLASS = new Customizer() {
 		public void customize(CodeEmitter e, Type type) {
@@ -212,9 +221,11 @@ abstract public class KeyFactory {
 			return ReflectUtils.getProtectionDomain(keyInterface);
 		}
 
-		/**
+		*/
+/**
 		 * @deprecated Use {@link #addCustomizer(KeyFactoryCustomizer)} instead.
-		 */
+		 *//*
+
 		@Deprecated
 		public void setCustomizer(Customizer customizer) {
 			customizers = CustomizerRegistry.singleton(customizer);
@@ -361,3 +372,4 @@ abstract public class KeyFactory {
 	}
 
 }
+*/

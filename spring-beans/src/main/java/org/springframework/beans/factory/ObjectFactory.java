@@ -45,6 +45,7 @@ public interface ObjectFactory<T> {
 	 * @return the resulting instance
 	 * @throws BeansException in case of creation errors
 	 */
+	//当调用此方法的时候,表示实际执行的是匿名内部类的方法
 	T getObject() throws BeansException;
 
 }
