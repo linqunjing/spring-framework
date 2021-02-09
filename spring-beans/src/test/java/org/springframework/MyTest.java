@@ -9,8 +9,6 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 public class MyTest {
 
 	public void test1(){
-		XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader();
-		beanDefinitionReader.setValidationMode();
 	}
 
 }

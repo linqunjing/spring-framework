@@ -106,7 +106,7 @@ public class SimpleRemoteSlsbInvokerInterceptor extends AbstractRemoteSlsbInvoke
 		catch (InvocationTargetException ex) {
 			Throwable targetEx = ex.getTargetException();
 			if (targetEx instanceof RemoteException) {
-				RemoteException rex = (RemoteException) targetEx;AliasRegistry
+				RemoteException rex = (RemoteException) targetEx;
 				throw RmiClientInterceptorUtils.convertRmiAccessException(
 					invocation.getMethod(), rex, isConnectFailure(rex), getJndiName());
 			}
